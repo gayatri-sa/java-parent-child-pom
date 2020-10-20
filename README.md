@@ -1,6 +1,8 @@
 # java-parent-child-pom
 Java parent child POM example with Maven Profiles
-Building the parent project with automatically build all the child projects too so you do not need to explicitly build them.
+
++ Building the parent project will automatically build all the child projects too; you do not need to explicitly build them.
++ The child projects will inherit all the properties of the parent. So, any values set in the parent pom will be valid & applicable for all the child poms too.
 
 # Steps
 ## 1. Create parent project and change the <packaging> to "pom" in the pom.xml.
