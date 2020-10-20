@@ -23,6 +23,12 @@ mvn clean package
 ```
 mvn clean package -P prod
 ```
+## 5. Execute any child project war 
+Here I am executing the WAR of the core/ child project
+```
+java -cp target/core-1.0-SNAPSHOT.jar org.nivi.App
+```
+
 
 # Docker Commands
 ## 1. Create parent project and change the <packaging> to "pom" in the pom.xml.
@@ -44,7 +50,11 @@ docker run -it --rm --name my-maven-project -v "$PWD/parent-project":/usr/src/my
 ```
 docker run -it --rm --name my-maven-project -v "$PWD/parent-project":/usr/src/mymaven/parent-project -v "$PWD/.m2":/root/.m2 -w /usr/src/mymaven/parent-project maven:3.3-jdk-8 mvn clean package -P prod
 ```
-
+## 5. Execute any child project war 
+Here I am executing the WAR of the core/ child project
+```
+docker run -it --rm --name my-maven-project -v "$PWD/core":/usr/src/mymaven -v "$PWD/../.m2":/root/.m2 -w /usr/src/mymaven maven:3.3-jdk-8 java -cp target/core-1.0-SNAPSHOT.jar org.nivi.App
+```
 # All Thanks To
 https://www.baeldung.com/maven-multi-module
 
